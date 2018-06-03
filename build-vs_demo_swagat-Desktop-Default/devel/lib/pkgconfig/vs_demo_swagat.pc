@@ -1,0 +1,8 @@
+prefix=/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/devel
+
+Name: vs_demo_swagat
+Description: Description of vs_demo_swagat
+Version: 0.0.0
+Cflags: -I/home/shashank/catkin_ws/src/vs_demo_swagat/include
+Libs: -L/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/devel/lib -lvs_demo_swagat
+Requires: roscpp std_msgs

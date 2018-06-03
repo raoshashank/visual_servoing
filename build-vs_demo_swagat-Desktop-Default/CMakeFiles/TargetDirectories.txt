@@ -1,0 +1,17 @@
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/clean_test_results.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/download_extra_data.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/doxygen.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/gtest/CMakeFiles/gtest.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/gtest/CMakeFiles/gtest_main.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/roscpp_generate_messages_cpp.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/roscpp_generate_messages_lisp.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/roscpp_generate_messages_py.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/run_tests.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/std_msgs_generate_messages_cpp.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/std_msgs_generate_messages_lisp.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/std_msgs_generate_messages_py.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/tests.dir
+/home/shashank/catkin_ws/src/build-vs_demo_swagat-Desktop-Default/CMakeFiles/vs_demo_swagat.dir
