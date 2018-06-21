@@ -8,7 +8,7 @@ def main():
     global pub,coo,cap,cX,cY
     coo.x=0
     coo.y=0
-    cap=cv2.VideoCapture(1)
+    cap=cv2.VideoCapture(0)
     while not rospy.is_shutdown():
        while (cap.isOpened()):
         ret, frame = cap.read()

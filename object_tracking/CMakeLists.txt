@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
   rospy
   std_msgs
+  
 )
 
 ## System dependencies are found with CMake's conventions
@@ -52,10 +53,7 @@ add_message_files(FILES
 )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
+# add_service_files(FILES
 # )
 
 ## Generate actions in the 'action' folder

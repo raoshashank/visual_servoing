@@ -3,20 +3,24 @@
        name="ur5" >
 
   <!-- common stuff -->
-  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro"/>
+  <xacro:property name="M_PI" value="3.1415926535897931" /> 
 
   <!-- ur5 -->
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 
   <!-- arm -->
   <xacro:ur5_robot prefix="" joint_limited="false"/>
-
+ 
+  <!--  Foundation Link & World Link--> 
+ 
   <link name="world" />
 
   <joint name="world_joint" type="fixed">
     <parent link="world" />
-    <child link = "base_link" />
+    <child link = "foundation_link" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 0" />
   </joint>
 
 </robot>

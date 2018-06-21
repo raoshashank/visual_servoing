@@ -20,6 +20,9 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
+find_package(OpenCV REQUIRED)
+add_definitions(-std=c++11)
+
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -73,10 +76,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   control_msgs#   geometry_msgs#   sensor_msgs#   trajectory_msgs#   ur_msgs
-# )
+ generate_messages(
+   DEPENDENCIES
+   control_msgs   geometry_msgs   sensor_msgs   trajectory_msgs   ur_msgs
+ )
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -109,8 +112,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-#  LIBRARIES ur_modern_driver
-  CATKIN_DEPENDS hardware_interface controller_manager actionlib control_msgs geometry_msgs roscpp sensor_msgs trajectory_msgs ur_msgs
+  LIBRARIES ur_modern_driver object_tracking
+  CATKIN_DEPENDS object_tracking hardware_interface controller_manager actionlib control_msgs geometry_msgs roscpp sensor_msgs trajectory_msgs ur_msgs
   DEPENDS ur_hardware_interface
 )
 
@@ -143,6 +146,8 @@ include_directories(include
 add_library(ur_hardware_interface src/ur_hardware_interface.cpp)
 target_link_libraries(ur_hardware_interface
   ${catkin_LIBRARIES}
+  ${OpenCV_LIBRARIES}
+
 )
 
 ## Add cmake target dependencies of the library
@@ -158,6 +163,8 @@ set(${PROJECT_NAME}_SOURCES
     src/ur_communication.cpp
     src/robot_state.cpp
     src/robot_state_RT.cpp
+    src/vsdemo.cpp
+    src/ur5model.cpp
     src/do_output.cpp)
 add_executable(ur_driver ${${PROJECT_NAME}_SOURCES})
 

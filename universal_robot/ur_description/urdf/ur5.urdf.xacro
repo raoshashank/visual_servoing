@@ -77,10 +77,88 @@
     </inertial>
   </xacro:macro>
 
-
   <xacro:macro name="ur5_robot" params="prefix joint_limited">
+  
+    <link name="foundation_link" >
+     <inertial>
+      <origin xyz="0.0 0.0 0.042" rpy="0 0 0" />
+      <mass value="20"/>
+      <inertia ixx ="1.0" ixz = "0" iyy = "1.0" iyz = "0" ixy = "0" izz ="1.0"/> 
+     </inertial>   
+     <visual>
+        <geometry>
+          <box size="0.55 0.55 0.08"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.042" rpy="0 0 0" />
+        <material name="LightGrey">
+          <color rgba="0.827 0.827 0.827 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.55 0.55 0.08"/>
+        </geometry>
+      </collision>
+    </link>
 
-    <link name="${prefix}base_link" >
+    <gazebo reference = "foundation_link">
+      <kp>100.0</kp>
+      <kd>10.0</kd>
+      <mu1>10</mu1>
+      <mu2>10</mu2>
+      <material>Gazebo/DarkGrey</material>
+    </gazebo>
+ 
+  
+  <!--Pipe Link -->
+
+   <link name="pipe_link" >
+     <inertial>
+      <origin xyz="0.0 0.0 0.2225" rpy="0 0 0" />
+      <mass value="8"/>
+      <inertia ixx ="1.0" ixz = "0" iyy = "1.0" iyz = "0" ixy = "0" izz ="1.0"/> 
+     </inertial>   
+     <visual>
+        <geometry>
+          <box size="0.08 0.08 0.445"/>
+        </geometry>
+        <origin xyz="0.0 0.0 0.2225" rpy="0 0 0" />
+        <material name="LightGrey">
+          <color rgba="0.827 0.827 0.827 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.08 0.08 0.445"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference = "pipe_link">
+      <kp>100.0</kp>
+      <kd>10.0</kd>
+      <mu1>10</mu1>
+      <mu2>10</mu2> 
+      <material>Gazebo/Grey</material>       
+    </gazebo>
+
+
+  <joint name="pipe_to_foundation" type="fixed">
+    <parent link="foundation_link" />
+    <child link = "pipe_link" />
+    <origin xyz="0.0 0.0 0.08" rpy="0.0 0.0 0.0" />
+    <axis xyz="0 0 0" />
+  </joint>
+
+ 
+  <joint name="pipe_to_base" type="fixed">
+    <parent link="pipe_link" />
+    <child link = "${prefix}base_link" />
+    <origin xyz="0.0 0.0 0.445" rpy="0.0 0.0 0.0" /> 
+    <axis xyz="0 0 0" />
+  </joint>
+ 
+  <link name="${prefix}base_link" >
       <visual>
         <geometry>
           <mesh filename="package://ur_description/meshes/ur5/visual/base.dae" />
@@ -171,7 +249,7 @@
       <origin xyz="0.0 ${elbow_offset} ${upper_arm_length}" rpy="0.0 0.0 0.0" />
       <axis xyz="0 1 0" />
       <xacro:unless value="${joint_limited}">
-        <limit lower="${-pi}" upper="${pi}" effort="150.0" velocity="3.15"/>
+        <limit lower="${-2.0 * pi}" upper="${2.0 * pi}" effort="150.0" velocity="3.15"/>
       </xacro:unless>
       <xacro:if value="${joint_limited}">
         <limit lower="${-pi}" upper="${pi}" effort="150.0" velocity="3.15"/>
@@ -312,6 +390,7 @@
       </collision>
     </link>
 
+  
     <xacro:ur_arm_transmission prefix="${prefix}" />
     <xacro:ur_arm_gazebo prefix="${prefix}" />
 
