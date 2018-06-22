@@ -67,7 +67,7 @@ if __name__=="__main__":
     cX=0
     cY=0
     rospy.init_node('tracker',anonymous=False) 
-    pub=rospy.Publisher('/this_topic',coordinates,queue_size=1)
+    pub=rospy.Publisher('/target_feed',coordinates,queue_size=1)
     coo=coordinates()
     main()
     #rospy.spin()
